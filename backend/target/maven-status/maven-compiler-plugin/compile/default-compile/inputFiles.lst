@@ -1,0 +1,8 @@
+/home/joao/Documentos/letterbook/src/main/java/com/letterbook/backend/LetterbookApplication.java
+/home/joao/Documentos/letterbook/src/main/java/com/letterbook/backend/UserService/api/controller/UserController.java
+/home/joao/Documentos/letterbook/src/main/java/com/letterbook/backend/UserService/api/dto/UserLoginRequest.java
+/home/joao/Documentos/letterbook/src/main/java/com/letterbook/backend/UserService/application/service/UserServiceImpl.java
+/home/joao/Documentos/letterbook/src/main/java/com/letterbook/backend/UserService/application/usecase/UserUseCase.java
+/home/joao/Documentos/letterbook/src/main/java/com/letterbook/backend/UserService/domain/model/UserEntity.java
+/home/joao/Documentos/letterbook/src/main/java/com/letterbook/backend/UserService/domain/repository/UserRepository.java
+/home/joao/Documentos/letterbook/src/main/java/com/letterbook/backend/UserService/infra/config/SecurityConfig.java
