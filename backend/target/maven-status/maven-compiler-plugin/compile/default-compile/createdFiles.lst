@@ -1,0 +1,8 @@
+com/letterbook/backend/UserService/api/dto/UserLoginRequest.class
+com/letterbook/backend/LetterbookApplication.class
+com/letterbook/backend/UserService/application/usecase/UserUseCase.class
+com/letterbook/backend/UserService/api/controller/UserController.class
+com/letterbook/backend/UserService/infra/config/SecurityConfig.class
+com/letterbook/backend/UserService/domain/model/UserEntity.class
+com/letterbook/backend/UserService/application/service/UserServiceImpl.class
+com/letterbook/backend/UserService/domain/repository/UserRepository.class
