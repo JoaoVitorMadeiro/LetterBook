@@ -32,7 +32,7 @@ com/letterbook/user/infra/security/SecurityFilter$JwtTokenService.class
 com/letterbook/user/application/service/EmailService.class
 com/letterbook/user/application/service/UserServiceImpl.class
 com/letterbook/user/api/dto/ResetPasswordRequest.class
-com/letterbook/user/application/service/package-info.class
 com/letterbook/user/api/dto/LoginRequest.class
+com/letterbook/user/application/service/package-info.class
 com/letterbook/user/infra/package-info.class
 com/letterbook/user/api/dto/package-info.class

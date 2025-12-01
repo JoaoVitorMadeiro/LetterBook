@@ -1,5 +1,7 @@
 package com.catalogo.catalogo.service;
 
+import static com.catalogo.catalogo.repository.LivroSpecifications.withFilters;
+
 import com.catalogo.catalogo.dto.*;
 import com.catalogo.catalogo.exception.EntityNotFoundException;
 import com.catalogo.catalogo.model.*;
@@ -7,6 +9,7 @@ import com.catalogo.catalogo.repository.*;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -70,8 +73,9 @@ public class LivroService {
     }
 
     @Transactional(readOnly = true)
-    public Page<LivroResponse> listar(Pageable pageable) {
-        return livroRepository.findAll(pageable).map(this::toResponse);
+    public Page<LivroResponse> listar(Pageable pageable, String titulo, UUID autorId, UUID generoId) {
+        Specification<LivroEntity> spec = withFilters(titulo, autorId, generoId);
+        return livroRepository.findAll(spec, pageable).map(this::toResponse);
     }
 
     @Transactional(readOnly = true)
@@ -120,4 +124,3 @@ public class LivroService {
         return response;
     }
 }
-

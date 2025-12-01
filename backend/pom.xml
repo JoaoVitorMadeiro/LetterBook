@@ -17,7 +17,6 @@
     <url/>
     <modules>
         <module>User</module>
-        <module>Catalog</module>
         <module>Interaction</module>
         <module>catalogo</module>
     </modules>

@@ -15,10 +15,10 @@ export default function Login() {
     setError('')
     setLoading(true)
     try {
-      const { data } = await api.post('/auth/login', { email, password })
+      const { data } = await api.post('/auth/login', { email: email, senha: password })
       localStorage.setItem('lb_token', data?.token)
       navigate('/')
-    } catch (err) {
+    } catch {
       setError('Credenciais inválidas')
     } finally {
       setLoading(false)
@@ -30,8 +30,24 @@ export default function Login() {
       <Paper sx={{ p: 4, width: 380 }} elevation={3}>
         <Typography variant="h5" mb={2}>Entrar</Typography>
         <Box component="form" onSubmit={handleSubmit}>
-          <TextField label="E-mail" type="email" fullWidth margin="normal" value={email} onChange={(e) => setEmail(e.target.value)} required />
-          <TextField label="Senha" type="password" fullWidth margin="normal" value={password} onChange={(e) => setPassword(e.target.value)} required />
+          <TextField
+            label="E-mail"
+            type="email"
+            fullWidth
+            margin="normal"
+            value={email}
+            onChange={(e) => e?.target && setEmail(e.target.value)}
+            required
+          />
+          <TextField
+            label="Senha"
+            type="password"
+            fullWidth
+            margin="normal"
+            value={password}
+            onChange={(e) => e?.target && setPassword(e.target.value)}
+            required
+          />
           {error && <Typography color="error" variant="body2">{error}</Typography>}
           <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 2 }} disabled={loading}>
             {loading ? 'Entrando...' : 'Entrar'}

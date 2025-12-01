@@ -72,8 +72,8 @@ public class UserServiceImpl implements UserUseCase {
                     // Gera token único para recuperação
                     String token = UUID.randomUUID().toString();
                     
-                    // Define expiração para 1 hora
-                    OffsetDateTime expiracao = OffsetDateTime.now().plusHours(1);
+                    // Define expiração para 10 minutos
+                    OffsetDateTime expiracao = OffsetDateTime.now().plusMinutes(10);
                     
                     // Salva token no usuário
                     user.setTokenRecuperacaoSenha(token);

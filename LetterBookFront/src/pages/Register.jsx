@@ -16,9 +16,9 @@ export default function Register() {
     setError('')
     setLoading(true)
     try {
-      await api.post('/auth/register', { name, email, password })
+      await api.post('/auth/register', { nome: name, email: email, senha: password })
       navigate('/login')
-    } catch (err) {
+    } catch {
       setError('Erro ao registrar. Tente novamente.')
     } finally {
       setLoading(false)

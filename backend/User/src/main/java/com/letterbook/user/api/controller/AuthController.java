@@ -1,5 +1,6 @@
 package com.letterbook.user.api.controller;
 
+import com.letterbook.user.api.dto.CadastroRequest;
 import com.letterbook.user.api.dto.LoginRequest;
 import com.letterbook.user.api.dto.LoginResponse;
 import com.letterbook.user.api.dto.PasswordRecoveryRequest;
@@ -27,12 +28,21 @@ public class AuthController {
     private final UserUseCase userUseCase;
 
     /**
+     * RF02 - Cadastro: Registra novo usuário no sistema
+     */
+    @PostMapping("/register")
+    public ResponseEntity<Void> register(@Valid @RequestBody CadastroRequest cadastroRequest) {
+        userUseCase.cadastrar(cadastroRequest);
+        return ResponseEntity.noContent().build();
+    }
+
+    /**
      * RF01 - Login: Autentica usuário com e-mail e senha
      */
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginRequest loginRequest) {
         var authenticationToken = new UsernamePasswordAuthenticationToken(
-            loginRequest.email(), 
+            loginRequest.email(),
             loginRequest.senha()
         );
         var authentication = authenticationManager.authenticate(authenticationToken);
@@ -46,7 +56,7 @@ public class AuthController {
     /**
      * RF03 - Recuperação de Senha: Solicita recuperação de senha via e-mail
      */
-    @PostMapping("/recover-password")
+    @PostMapping("/forgot-password")
     public ResponseEntity<String> solicitarRecuperacaoSenha(@Valid @RequestBody PasswordRecoveryRequest request) {
         userUseCase.solicitarRecuperacaoSenha(request);
         return ResponseEntity.ok("Se o email estiver cadastrado, você receberá instruções para recuperação da senha.");

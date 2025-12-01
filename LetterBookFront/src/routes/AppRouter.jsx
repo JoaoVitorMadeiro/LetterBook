@@ -3,12 +3,14 @@ import MainLayout from '../layout/MainLayout'
 import Login from '../pages/Login'
 import Register from '../pages/Register'
 import ForgotPassword from '../pages/ForgotPassword'
+import ResetPassword from '../pages/ResetPassword'
 import Books from '../pages/Books'
 import Profile from '../pages/Profile'
 import Feed from '../pages/Feed'
 import Communities from '../pages/Communities'
 import Rankings from '../pages/Rankings'
 import Reviews from '../pages/Reviews'
+import CommunityDetail from '../pages/CommunityDetail'
 import NotFound from '../pages/NotFound'
 
 function ProtectedRoute({ children }) {
@@ -24,6 +26,7 @@ export default function AppRouter() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
 
         <Route
           path="/"
@@ -42,6 +45,16 @@ export default function AppRouter() {
             <ProtectedRoute>
               <MainLayout>
                 <Books />
+              </MainLayout>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/books/:id"
+          element={
+            <ProtectedRoute>
+              <MainLayout>
+                <BookDetail />
               </MainLayout>
             </ProtectedRoute>
           }
@@ -72,6 +85,16 @@ export default function AppRouter() {
             <ProtectedRoute>
               <MainLayout>
                 <Communities />
+              </MainLayout>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/communities/:id"
+          element={
+            <ProtectedRoute>
+              <MainLayout>
+                <CommunityDetail />
               </MainLayout>
             </ProtectedRoute>
           }
