@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/livros")
+@RequestMapping("/api/v1/livros")
 public class LivroController {
 
     private final LivroService livroService;

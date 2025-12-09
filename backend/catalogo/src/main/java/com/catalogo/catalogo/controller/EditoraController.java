@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/editoras")
+@RequestMapping("/api/v1/editoras")
 public class EditoraController {
 
     private final EditoraService editoraService;

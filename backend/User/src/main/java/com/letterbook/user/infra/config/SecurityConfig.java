@@ -30,8 +30,9 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable) // desabilita CSRF (ideal para APIs REST)
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/v1/auth/**").permitAll() // libera endpoints de autenticação
-                        .anyRequest().authenticated() // requer autenticação para outros endpoints
+                        .requestMatchers("/api/v1/auth/**").permitAll() 
+                        .requestMatchers(org.springframework.http.HttpMethod.POST, "/api/v1/usuarios/cadastro").permitAll()
+                        .anyRequest().authenticated()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class); // registra nosso filtro JWT antes do filtro padrão
 
@@ -46,7 +47,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:5173"));
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:5173", "http://letterbook:5173"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));
         configuration.setAllowCredentials(true);

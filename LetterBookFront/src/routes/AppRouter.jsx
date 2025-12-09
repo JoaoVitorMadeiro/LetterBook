@@ -12,6 +12,10 @@ import Rankings from '../pages/Rankings'
 import Reviews from '../pages/Reviews'
 import CommunityDetail from '../pages/CommunityDetail'
 import NotFound from '../pages/NotFound'
+import BookDetail from '../pages/BookDetail'
+import Dashboard from '../pages/Dashboard'
+import ListsPage from '../pages/ListsPage'
+import CreateList from '../pages/CreateList'
 
 function ProtectedRoute({ children }) {
   const token = localStorage.getItem('lb_token')
@@ -33,7 +37,29 @@ export default function AppRouter() {
           element={
             <ProtectedRoute>
               <MainLayout>
-                <Feed />
+                <Dashboard />
+              </MainLayout>
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/lists"
+          element={
+            <ProtectedRoute>
+              <MainLayout>
+                <ListsPage />
+              </MainLayout>
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/create-list"
+          element={
+            <ProtectedRoute>
+              <MainLayout>
+                <CreateList />
               </MainLayout>
             </ProtectedRoute>
           }

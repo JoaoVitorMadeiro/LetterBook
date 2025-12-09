@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/generos")
+@RequestMapping("/api/v1/generos")
 public class GeneroController {
 
     private final GeneroService generoService;
