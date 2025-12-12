@@ -1,0 +1,13 @@
+/home/jvm/Documentos/LetterBook/backend/Community/src/main/java/com/letterbook/community/CommunityApplication.java
+/home/jvm/Documentos/LetterBook/backend/Community/src/main/java/com/letterbook/community/api/controller/ComunidadeController.java
+/home/jvm/Documentos/LetterBook/backend/Community/src/main/java/com/letterbook/community/api/dto/ComunidadeRequest.java
+/home/jvm/Documentos/LetterBook/backend/Community/src/main/java/com/letterbook/community/api/dto/ComunidadeResponse.java
+/home/jvm/Documentos/LetterBook/backend/Community/src/main/java/com/letterbook/community/api/dto/MembroComunidadeResponse.java
+/home/jvm/Documentos/LetterBook/backend/Community/src/main/java/com/letterbook/community/api/dto/RankingResponse.java
+/home/jvm/Documentos/LetterBook/backend/Community/src/main/java/com/letterbook/community/application/service/ComunidadeService.java
+/home/jvm/Documentos/LetterBook/backend/Community/src/main/java/com/letterbook/community/domain/model/ComunidadeEntity.java
+/home/jvm/Documentos/LetterBook/backend/Community/src/main/java/com/letterbook/community/domain/model/MembroComunidadeEntity.java
+/home/jvm/Documentos/LetterBook/backend/Community/src/main/java/com/letterbook/community/domain/model/RankingEntity.java
+/home/jvm/Documentos/LetterBook/backend/Community/src/main/java/com/letterbook/community/domain/repository/ComunidadeRepository.java
+/home/jvm/Documentos/LetterBook/backend/Community/src/main/java/com/letterbook/community/domain/repository/MembroComunidadeRepository.java
+/home/jvm/Documentos/LetterBook/backend/Community/src/main/java/com/letterbook/community/domain/repository/RankingRepository.java
