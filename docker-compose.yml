@@ -1,0 +1,130 @@
+services:
+  # --- Database ---
+  db:
+    image: postgres:16-alpine
+    container_name: letterbook-db
+    environment:
+      POSTGRES_DB: letterbook_db
+      POSTGRES_USER: letterbook_user
+      POSTGRES_PASSWORD: letterbook_app
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - letterbook-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U letterbook_user -d letterbook_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # --- Microservices ---
+  
+  # 1. User Service (Port 8085)
+  user-service:
+    build:
+      context: ./backend/User
+      dockerfile: Dockerfile
+    container_name: letterbook-user
+    ports:
+      - "8085:8085"
+    environment:
+      SERVER_PORT: 8085
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/letterbook_db
+      SPRING_DATASOURCE_USERNAME: letterbook_user
+      SPRING_DATASOURCE_PASSWORD: letterbook_app
+      JWT_SECRET: MySuperSecretKeyForLetterBookAppThatMustBeVeryLongAndSecure1234567890!
+      JWT_EXPIRATION: 3600
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - letterbook-network
+
+  # 2. Catalogo Service (Port 8081)
+  catalogo-service:
+    build:
+      context: ./backend/catalogo
+      dockerfile: Dockerfile
+    container_name: letterbook-catalogo
+    ports:
+      - "8081:8081"
+    environment:
+      SERVER_PORT: 8081
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/letterbook_db
+      SPRING_DATASOURCE_USERNAME: letterbook_user
+      SPRING_DATASOURCE_PASSWORD: letterbook_app
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - letterbook-network
+
+  # 3. Interaction Service (Port 8082)
+  interaction-service:
+    build:
+      context: ./backend/Interaction
+      dockerfile: Dockerfile
+    container_name: letterbook-interaction
+    ports:
+      - "8082:8082"
+    environment:
+      SERVER_PORT: 8082
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/letterbook_db
+      SPRING_DATASOURCE_USERNAME: letterbook_user
+      SPRING_DATASOURCE_PASSWORD: letterbook_app
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - letterbook-network
+
+  # 4. Community Service (Port 8084)
+  community-service:
+    build:
+      context: ./backend/Community
+      dockerfile: Dockerfile
+    container_name: letterbook-community
+    ports:
+      - "8084:8084"
+    environment:
+      SERVER_PORT: 8084
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/letterbook_db
+      SPRING_DATASOURCE_USERNAME: letterbook_user
+      SPRING_DATASOURCE_PASSWORD: letterbook_app
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - letterbook-network
+
+  # 5. Gateway Service (Port 8080)
+  gateway-service:
+    build:
+      context: ./backend/Gateway
+      dockerfile: Dockerfile
+    container_name: letterbook-gateway
+    ports:
+      - "8080:8080"
+    environment:
+      SERVER_PORT: 8080
+      # Override Gateway Routes to use Docker Service Names instead of localhost
+      USER_SERVICE_URL: http://user-service:8085
+      CATALOGO_SERVICE_URL: http://catalogo-service:8081
+      INTERACTION_SERVICE_URL: http://interaction-service:8082
+      COMMUNITY_SERVICE_URL: http://community-service:8084
+    depends_on:
+      - user-service
+      - catalogo-service
+      - interaction-service
+      - community-service
+    networks:
+      - letterbook-network
+
+networks:
+  letterbook-network:
+    driver: bridge
+
+volumes:
+  postgres_data:

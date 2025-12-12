@@ -1,0 +1,82 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero-background",
+      "description": "A cozy, modern library with warm lighting.",
+      "imageUrl": "https://images.unsplash.com/photo-1485322551133-3a4c27a9d925?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bGlicmFyeSUyMGJvb2tzfGVufDB8fHx8MTc2NTQzMDIwNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "library books"
+    },
+    {
+      "id": "book-1",
+      "description": "Dune Cover",
+      "imageUrl": "https://images.unsplash.com/photo-1595124028480-cdfd7be7b85d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkZXNlcnQlMjBwbGFuZXR8ZW58MHx8fHwxNzY1NDcwODUyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "desert planet"
+    },
+    {
+      "id": "book-2",
+      "description": "Project Hail Mary Cover",
+      "imageUrl": "https://images.unsplash.com/photo-1688413399498-e35ed74b554f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzcGFjZXNoaXAlMjBpbnRlcmlvcnxlbnwwfHx8fDE3NjU0NzA4NTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "spaceship interior"
+    },
+    {
+      "id": "book-3",
+      "description": "The Three-Body Problem Cover",
+      "imageUrl": "https://images.unsplash.com/photo-1567587411727-154d1253a0c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhYnN0cmFjdCUyMHNjaS1maXxlbnwwfHx8fDE3NjU0NzA4NTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract sci-fi"
+    },
+    {
+      "id": "book-4",
+      "description": "The Martian Cover",
+      "imageUrl": "https://images.unsplash.com/photo-1614935981447-893ce3858657?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtYXJzJTIwbGFuZHNjYXBlfGVufDB8fHx8MTc2NTM0Mzg0N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mars landscape"
+    },
+    {
+      "id": "book-5",
+      "description": "Klara and the Sun Cover",
+      "imageUrl": "https://images.unsplash.com/photo-1705891333891-c225454768a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzdW4lMjBzZXR0aW5nfGVufDB8fHx8MTc2NTQ3MDg1Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sun setting"
+    },
+    {
+      "id": "book-6",
+      "description": "Exhalation Cover",
+      "imageUrl": "https://images.unsplash.com/photo-1751971309844-cd398ffc540f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y2xvY2t3b3JrJTIwbWFjaGluZXJ5fGVufDB8fHx8MTc2NTQ3MDg1Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "clockwork machinery"
+    },
+    {
+      "id": "book-7",
+      "description": "Ancillary Justice Cover",
+      "imageUrl": "https://images.unsplash.com/photo-1675326570919-946d728e9a25?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmdXR1cmlzdGljJTIwY2l0eXxlbnwwfHx8fDE3NjU0MzM2MzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "futuristic city"
+    },
+    {
+      "id": "book-8",
+      "description": "Gideon the Ninth Cover",
+      "imageUrl": "https://images.unsplash.com/photo-1594399430386-913fd5defaa4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxza3VsbCUyMHN3b3JkfGVufDB8fHx8MTc2NTQ3MDg1Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "skull sword"
+    },
+    {
+      "id": "book-9",
+      "description": "A Memory Called Empire Cover",
+      "imageUrl": "https://images.unsplash.com/photo-1564493140194-f9544fae5611?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzcGFjZSUyMHN0YXRpb258ZW58MHx8fHwxNzY1MzkxMzIyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "space station"
+    },
+    {
+      "id": "book-10",
+      "description": "Hyperion Cover",
+      "imageUrl": "https://images.unsplash.com/photo-1641146243141-951ae1e8913f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjcnlzdGFsJTIwc3RydWN0dXJlfGVufDB8fHx8MTc2NTQ0MzEzMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "crystal structure"
+    },
+    {
+      "id": "book-11",
+      "description": "The Left Hand of Darkness Cover",
+      "imageUrl": "https://images.unsplash.com/photo-1712511630932-c75d5f66d9b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxpY2UlMjBwbGFuZXR8ZW58MHx8fHwxNzY1NDcwODUyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "ice planet"
+    },
+    {
+      "id": "book-12",
+      "description": "Children of Time Cover",
+      "imageUrl": "https://images.unsplash.com/photo-1446582186851-3fe172f6acb9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzcGlkZXIlMjB3ZWJ8ZW58MHx8fHwxNzY1NDQyODYwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "spider web"
+    }
+  ]
+}

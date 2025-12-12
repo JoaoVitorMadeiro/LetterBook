@@ -1,0 +1,132 @@
+-- =================================================================
+-- CONFIGURAÇÃO INICIAL E DEFINIÇÃO DE TIPOS
+-- =================================================================
+
+-- Criação de Schemas para organização lógica das tabelas
+CREATE SCHEMA IF NOT EXISTS core;
+CREATE SCHEMA IF NOT EXISTS social;
+
+-- Definição de tipos customizados (ENUMs) para integridade de dados
+CREATE TYPE social.tipo_papel_membro AS ENUM ('ADMIN', 'MODERADOR', 'MEMBRO');
+COMMENT ON TYPE social.tipo_papel_membro IS 'Define os papéis que um usuário pode ter em uma comunidade.';
+
+-- Função e Trigger para atualizar automaticamente o campo `updated_at`
+CREATE OR REPLACE FUNCTION core.trigger_set_timestamp()
+RETURNS TRIGGER AS $$
+BEGIN
+  NEW.updated_at = NOW();
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+COMMENT ON FUNCTION core.trigger_set_timestamp() IS 'Função de trigger para atualizar o campo updated_at para a hora atual.';
+
+-- =================================================================
+-- SCHEMA `core`: TABELAS ESTRUTURAIS
+-- =================================================================
+
+CREATE TABLE core.usuarios (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    foto_url VARCHAR(255),
+    biografia TEXT,
+    token_recuperacao_senha VARCHAR(255),
+    data_expiracao_token TIMESTAMP WITH TIME ZONE,
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TRIGGER set_timestamp BEFORE UPDATE ON core.usuarios FOR EACH ROW EXECUTE FUNCTION core.trigger_set_timestamp();
+COMMENT ON TABLE core.usuarios IS 'Armazena todos os usuários da plataforma (RF01, RF02, RF03, RF04).';
+
+CREATE TABLE core.autores (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    nome VARCHAR(255) NOT NULL,
+    data_nascimento DATE,
+    biografia TEXT,
+    UNIQUE(nome, data_nascimento)
+);
+COMMENT ON TABLE core.autores IS 'Tabela normalizada para autores, permitindo múltiplos autores por livro.';
+
+CREATE TABLE core.editoras (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    nome VARCHAR(100) UNIQUE NOT NULL
+);
+COMMENT ON TABLE core.editoras IS 'Tabela normalizada para editoras.';
+
+CREATE TABLE core.livros (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    titulo VARCHAR(255) NOT NULL,
+    isbn VARCHAR(13) UNIQUE,
+    sinopse TEXT,
+    capa_url VARCHAR(255),
+    ano_publicacao INTEGER,
+    editora_id UUID REFERENCES core.editoras(id),
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TRIGGER set_timestamp BEFORE UPDATE ON core.livros FOR EACH ROW EXECUTE FUNCTION core.trigger_set_timestamp();
+COMMENT ON TABLE core.livros IS 'Catálogo central de livros (RF05).';
+
+CREATE TABLE core.livro_autores (
+    livro_id UUID NOT NULL REFERENCES core.livros(id) ON DELETE CASCADE,
+    autor_id UUID NOT NULL REFERENCES core.autores(id) ON DELETE CASCADE,
+    PRIMARY KEY (livro_id, autor_id)
+);
+COMMENT ON TABLE core.livro_autores IS 'Tabela de junção para suportar múltiplos autores por livro.';
+
+-- =================================================================
+-- SCHEMA `social`: TABELAS DE INTERAÇÃO SOCIAL
+-- =================================================================
+
+CREATE TABLE social.avaliacoes (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    usuario_id UUID NOT NULL REFERENCES core.usuarios(id) ON DELETE CASCADE,
+    livro_id UUID NOT NULL REFERENCES core.livros(id) ON DELETE CASCADE,
+    nota INTEGER NOT NULL CHECK (nota >= 1 AND nota <= 5),
+    resenha TEXT,
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE (usuario_id, livro_id)
+);
+CREATE TRIGGER set_timestamp BEFORE UPDATE ON social.avaliacoes FOR EACH ROW EXECUTE FUNCTION core.trigger_set_timestamp();
+COMMENT ON TABLE social.avaliacoes IS 'Resenhas e notas dadas pelos usuários aos livros (RF06).';
+
+CREATE TABLE social.seguidores (
+    seguidor_id UUID NOT NULL REFERENCES core.usuarios(id) ON DELETE CASCADE,
+    seguido_id UUID NOT NULL REFERENCES core.usuarios(id) ON DELETE CASCADE,
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (seguidor_id, seguido_id),
+    CHECK (seguidor_id <> seguido_id)
+);
+COMMENT ON TABLE social.seguidores IS 'Relação de seguidores entre usuários (RF04).';
+
+CREATE TABLE social.comunidades (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    nome VARCHAR(100) UNIQUE NOT NULL,
+    descricao TEXT,
+    criador_id UUID REFERENCES core.usuarios(id) ON DELETE SET NULL,
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TRIGGER set_timestamp BEFORE UPDATE ON social.comunidades FOR EACH ROW EXECUTE FUNCTION core.trigger_set_timestamp();
+COMMENT ON TABLE social.comunidades IS 'Comunidades temáticas criadas por usuários (RF08).';
+
+CREATE TABLE social.membros_comunidade (
+    usuario_id UUID NOT NULL REFERENCES core.usuarios(id) ON DELETE CASCADE,
+    comunidade_id UUID NOT NULL REFERENCES social.comunidades(id) ON DELETE CASCADE,
+    papel social.tipo_papel_membro NOT NULL DEFAULT 'MEMBRO',
+    data_adesao TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (usuario_id, comunidade_id)
+);
+COMMENT ON TABLE social.membros_comunidade IS 'Membros de cada comunidade e seus respectivos papéis (RF08).';
+
+-- =================================================================
+-- ESTRATÉGIA DE INDEXAÇÃO AVANÇADA (RNF02 - Desempenho)
+-- =================================================================
+CREATE INDEX idx_usuarios_token_recuperacao_senha ON core.usuarios(token_recuperacao_senha) WHERE token_recuperacao_senha IS NOT NULL;
+CREATE INDEX idx_livros_titulo_gin ON core.livros USING gin(to_tsvector('portuguese', titulo));
+CREATE INDEX idx_avaliacoes_livro_nota_desc ON social.avaliacoes(livro_id, nota DESC);
+CREATE INDEX idx_avaliacoes_livro_data_desc ON social.avaliacoes(livro_id, created_at DESC);
+CREATE INDEX idx_seguidores_seguido_id ON social.seguidores(seguido_id);
+CREATE INDEX idx_seguidores_seguidor_id ON social.seguidores(seguidor_id);

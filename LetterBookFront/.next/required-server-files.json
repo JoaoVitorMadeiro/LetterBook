@@ -77,18 +77,6 @@
           "hostname": "picsum.photos",
           "port": "",
           "pathname": "/**"
-        },
-        {
-          "protocol": "http",
-          "hostname": "books.google.com",
-          "port": "",
-          "pathname": "/**"
-        },
-        {
-          "protocol": "https",
-          "hostname": "books.google.com",
-          "port": "",
-          "pathname": "/**"
         }
       ],
       "unoptimized": false
@@ -332,8 +320,8 @@
       "fallback": []
     }
   },
-  "appDir": "/home/jvm/Documentos/LetterBook/hosting",
-  "relativeAppDir": "Documentos/LetterBook/hosting",
+  "appDir": "/home/jvm/Documentos/LetterBook/LetterBookFront",
+  "relativeAppDir": "Documentos/LetterBook/LetterBookFront",
   "files": [
     ".next/routes-manifest.json",
     ".next/server/pages-manifest.json",

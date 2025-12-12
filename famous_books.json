@@ -1,0 +1,122 @@
+[
+  {
+    "titulo": "The Great Gatsby",
+    "isbn": "9780743273565",
+    "sinopse": "The story of the fabulously wealthy Jay Gatsby and his new love for the beautiful Daisy Buchanan, of lavish parties on Long Island at a time when The New York Times remarked 'gin was the national drink and sex the national obsession,' it is an exquisitely crafted tale of America in the 1920s.",
+    "capaUrl": "http://books.google.com/books/content?id=iXn5U2IZKe0C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "anoPublicacao": 1925,
+    "editora": "Scribner",
+    "autores": ["F. Scott Fitzgerald"],
+    "generos": ["Classic", "Fiction"]
+  },
+  {
+    "titulo": "To Kill a Mockingbird",
+    "isbn": "9780061120084",
+    "sinopse": "The unforgettable novel of a childhood in a sleepy Southern town and the crisis of conscience that rocked it. Harper Lee always considered her book to be a simple love story. Today it is regarded as a masterpiece of American literature.",
+    "capaUrl": "http://books.google.com/books/content?id=PGR2AwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "anoPublicacao": 1960,
+    "editora": "Harper Perennial Modern Classics",
+    "autores": ["Harper Lee"],
+    "generos": ["Classic", "Historical Fiction"]
+  },
+  {
+    "titulo": "1984",
+    "isbn": "9780451524935",
+    "sinopse": "Among the seminal texts of the 20th century, Nineteen Eighty-Four is a rare work that grows more haunting as its futuristic purgatory becomes more real. Published in 1949, the book offers political satirist George Orwell's nightmare vision of a totalitarian, bureaucratic world and one poor stiff's attempt to find individuality.",
+    "capaUrl": "http://books.google.com/books/content?id=kotPYEqx7kMC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "anoPublicacao": 1949,
+    "editora": "Signet Classic",
+    "autores": ["George Orwell"],
+    "generos": ["Dystopian", "Science Fiction"]
+  },
+  {
+    "titulo": "Pride and Prejudice",
+    "isbn": "9781503290563",
+    "sinopse": "Pride and Prejudice is a novel of manners by Jane Austen, first published in 1813. The story follows the main character, Elizabeth Bennet, as she deals with issues of manners, upbringing, morality, education, and marriage in the society of the landed gentry of the British Regency.",
+    "capaUrl": "http://books.google.com/books/content?id=s1gVAAAAYAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "anoPublicacao": 1813,
+    "editora": "CreateSpace Independent Publishing Platform",
+    "autores": ["Jane Austen"],
+    "generos": ["Romance", "Classic"]
+  },
+  {
+    "titulo": "The Catcher in the Rye",
+    "isbn": "9780316769488",
+    "sinopse": "The hero-narrator of The Catcher in the Rye is an ancient child of sixteen, a native New Yorker named Holden Caulfield. Through circumstances that tend to preclude adult, secondhand description, he leaves his prep school in Pennsylvania and goes underground in New York City for three days.",
+    "capaUrl": "http://books.google.com/books/content?id=j--EMdEfmbkC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "anoPublicacao": 1951,
+    "editora": "Little, Brown and Company",
+    "autores": ["J.D. Salinger"],
+    "generos": ["Fiction", "Classic"]
+  },
+  {
+    "titulo": "The Hobbit",
+    "isbn": "9780547928227",
+    "sinopse": "Bilbo Baggins is a hobbit who enjoys a comfortable, unambitious life, rarely traveling further than his pantry or cellar. But his contentment is disturbed when the wizard Gandalf and a company of thirteen dwarves arrive on his doorstep one day to whisk him away on an unexpected journey 'there and back again'.",
+    "capaUrl": "http://books.google.com/books/content?id=pD6arNyKyi8C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "anoPublicacao": 1937,
+    "editora": "Houghton Mifflin Harcourt",
+    "autores": ["J.R.R. Tolkien"],
+    "generos": ["Fantasy", "Adventure"]
+  },
+  {
+    "titulo": "Fahrenheit 451",
+    "isbn": "9781451673319",
+    "sinopse": "Guy Montag is a fireman. His job is to destroy the most illegal of commodities, the printed book, along with the houses in which they are hidden. Montag never questions the destruction and ruin his actions produce, returning each day to his bland life and wife, Mildred, who spends all day with her television \"family.\"",
+    "capaUrl": "http://books.google.com/books/content?id=P_bzOAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "anoPublicacao": 1953,
+    "editora": "Simon & Schuster",
+    "autores": ["Ray Bradbury"],
+    "generos": ["Dystopian", "Science Fiction"]
+  },
+  {
+    "titulo": "Moby Dick",
+    "isbn": "9781503280786",
+    "sinopse": "The book is the sailor Ishmael's narrative of the obsessive quest of Ahab, captain of the whaling ship Pequod, for revenge on Moby Dick, the giant white sperm whale that on the ship's previous voyage bit off Ahab's leg at the knee.",
+    "capaUrl": "http://books.google.com/books/content?id=3R1jDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "anoPublicacao": 1851,
+    "editora": "CreateSpace Independent Publishing Platform",
+    "autores": ["Herman Melville"],
+    "generos": ["Adventure", "Classic"]
+  },
+  {
+    "titulo": "Harry Potter and the Sorcerer's Stone",
+    "isbn": "9780590353427",
+    "sinopse": "Harry Potter has never been the star of a Quidditch team, scoring points while riding a broom far above the ground. He knows no spells, has never helped to hatch a dragon, and has never worn a cloak of invisibility. All he knows is a miserable life with the Dursleys, his horrible aunt and uncle, and their abominable son, Dudley.",
+    "capaUrl": "http://books.google.com/books/content?id=wrOQLV6xB-wC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "anoPublicacao": 1997,
+    "editora": "Scholastic",
+    "autores": ["J.K. Rowling"],
+    "generos": ["Fantasy", "Young Adult"]
+  },
+  {
+    "titulo": "The Lord of the Rings",
+    "isbn": "9780544003415",
+    "sinopse": "One Ring to rule them all, One Ring to find them, One Ring to bring them all and in the darkness bind them. In ancient times the Rings of Power were crafted by the Elven-smiths, and Sauron, the Dark Lord, forged the One Ring, filling it with his own power so that he could rule all others.",
+    "capaUrl": "http://books.google.com/books/content?id=yl4dILkcqm4C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "anoPublicacao": 1954,
+    "editora": "Houghton Mifflin Harcourt",
+    "autores": ["J.R.R. Tolkien"],
+    "generos": ["Fantasy", "Adventure"]
+  },
+  {
+    "titulo": "The Alchemist",
+    "isbn": "9780062315007",
+    "sinopse": "Paulo Coelho's enchanting novel has inspired a devoted following around the world. This story, dazzling in its powerful simplicity and soul-stirring wisdom, is about an Andalusian shepherd boy named Santiago who travels from his homeland in Spain to the Egyptian desert in search of a treasure buried near the Pyramids.",
+    "capaUrl": "http://books.google.com/books/content?id=FzVjBgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "anoPublicacao": 1988,
+    "editora": "HarperOne",
+    "autores": ["Paulo Coelho"],
+    "generos": ["Fiction", "Philosophy"]
+  },
+  {
+    "titulo": "The Little Prince",
+    "isbn": "9780156012195",
+    "sinopse": "Moral allegory and spiritual autobiography, The Little Prince is the most translated book in the French language. With a timeless charm it tells the story of a little boy who leaves the safety of his own tiny planet to travel the universe, learning the vagaries of adult behaviour through a series of extraordinary encounters.",
+    "capaUrl": "http://books.google.com/books/content?id=O7tQAAAAMAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "anoPublicacao": 1943,
+    "editora": "Harcourt, Inc.",
+    "autores": ["Antoine de Saint-Exupéry"],
+    "generos": ["Children's Literature", "Philosophy"]
+  }
+]
