@@ -1,0 +1,34 @@
+.avatar {
+  align-items: center;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.avatar.medium {
+  border-radius: var(--primitive-spacing-8);
+  height: 32px;
+  top: 69px;
+  width: 32px;
+}
+
+.avatar.state-hover {
+  background-color: var(--tokens-color-neutral-dark);
+  border: 1px solid;
+  border-color: var(--tokens-color-neutral-lightest);
+  left: 171px;
+}
+
+.avatar.state-default {
+  background-color: var(--tokens-color-neutral-darker);
+  left: 39px;
+}
+
+.avatar.small {
+  border-radius: var(--primitive-spacing-6);
+  height: 24px;
+  top: 28px;
+  width: var(--primitive-spacing-6);
+}

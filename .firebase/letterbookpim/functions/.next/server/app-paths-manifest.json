@@ -1,0 +1,19 @@
+{
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/login/page": "app/login/page.js",
+  "/forgot-password/page": "app/forgot-password/page.js",
+  "/register/page": "app/register/page.js",
+  "/page": "app/page.js",
+  "/reset-password/page": "app/reset-password/page.js",
+  "/(main)/book/[id]/page": "app/(main)/book/[id]/page.js",
+  "/(main)/books/page": "app/(main)/books/page.js",
+  "/(main)/create-list/page": "app/(main)/create-list/page.js",
+  "/(main)/communities/page": "app/(main)/communities/page.js",
+  "/(main)/community/[id]/page": "app/(main)/community/[id]/page.js",
+  "/(main)/lists/page": "app/(main)/lists/page.js",
+  "/(main)/page": "app/(main)/page.js",
+  "/(main)/feed/page": "app/(main)/feed/page.js",
+  "/(main)/profile/page": "app/(main)/profile/page.js",
+  "/(main)/rankings/page": "app/(main)/rankings/page.js"
+}

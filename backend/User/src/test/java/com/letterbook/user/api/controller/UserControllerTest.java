@@ -1,6 +1,7 @@
 package com.letterbook.user.api.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.letterbook.user.api.dto.CadastroRequest;
 import com.letterbook.user.api.dto.UpdateProfileRequest;
 import com.letterbook.user.api.dto.UserProfileResponse;
@@ -8,19 +9,15 @@ import com.letterbook.user.application.usecase.UserUseCase;
 import com.letterbook.user.domain.model.UserEntity;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.core.MethodParameter;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.MediaType;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.bind.support.WebDataBinderFactory;
-import org.springframework.web.context.request.NativeWebRequest;
-import org.springframework.web.method.support.HandlerMethodArgumentResolver;
-import org.springframework.web.method.support.ModelAndViewContainer;
 
 import java.time.OffsetDateTime;
 import java.util.UUID;
@@ -31,24 +28,17 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@WebMvcTest(UserController.class)
+@ExtendWith(MockitoExtension.class)
 public class UserControllerTest {
 
     private MockMvc mockMvc;
 
-    @Autowired
+    @InjectMocks
     private UserController userController;
 
-    @MockBean
+    @Mock
     private UserUseCase userUseCase;
 
-    @MockBean
-    private com.letterbook.user.domain.repository.UserRepository userRepository;
-
-    @MockBean
-    private com.letterbook.user.application.usecase.TokenService tokenService;
-
-    @Autowired
     private ObjectMapper objectMapper;
 
     private UserEntity mockUser;
@@ -56,6 +46,9 @@ public class UserControllerTest {
 
     @BeforeEach
     void setUp() {
+        objectMapper = new ObjectMapper();
+        objectMapper.registerModule(new JavaTimeModule());
+
         mockUser = new UserEntity();
         mockUser.setId(UUID.randomUUID());
         mockUser.setNome("Test User");
@@ -64,19 +57,7 @@ public class UserControllerTest {
         
         mockAuth = new UsernamePasswordAuthenticationToken(mockUser, null, mockUser.getAuthorities());
 
-        mockMvc = MockMvcBuilders.standaloneSetup(userController)
-                .setCustomArgumentResolvers(new HandlerMethodArgumentResolver() {
-                    @Override
-                    public boolean supportsParameter(MethodParameter parameter) {
-                        return Authentication.class.isAssignableFrom(parameter.getParameterType());
-                    }
-
-                    @Override
-                    public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer, NativeWebRequest webRequest, WebDataBinderFactory binderFactory) {
-                        return mockAuth;
-                    }
-                })
-                .build();
+        mockMvc = MockMvcBuilders.standaloneSetup(userController).build();
     }
 
     @Test
@@ -101,7 +82,8 @@ public class UserControllerTest {
 
         when(userUseCase.buscarPerfilProprio(mockUser.getId())).thenReturn(response);
 
-        mockMvc.perform(get("/api/v1/usuarios/me/profile"))
+        mockMvc.perform(get("/api/v1/usuarios/me/profile")
+                .principal(mockAuth)) // Inject Authentication directly
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.email").value(mockUser.getEmail()));
     }
@@ -116,7 +98,8 @@ public class UserControllerTest {
 
         when(userUseCase.buscarPerfilOutroUsuario(eq(otherUserId), eq(mockUser.getId()))).thenReturn(response);
 
-        mockMvc.perform(get("/api/v1/usuarios/{usuarioId}/profile", otherUserId))
+        mockMvc.perform(get("/api/v1/usuarios/{usuarioId}/profile", otherUserId)
+                .principal(mockAuth)) // Inject Authentication
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.email").value("other@example.com"));
     }
@@ -132,6 +115,7 @@ public class UserControllerTest {
         when(userUseCase.atualizarPerfil(eq(mockUser.getId()), any(UpdateProfileRequest.class))).thenReturn(response);
 
         mockMvc.perform(put("/api/v1/usuarios/me/profile")
+                .principal(mockAuth) // Inject Authentication
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isOk())

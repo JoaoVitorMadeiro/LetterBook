@@ -1,2 +1,4 @@
 /home/jvm/Documentos/LetterBook/backend/catalogo/src/test/java/com/catalogo/catalogo/CatalogoApplicationTests.java
+/home/jvm/Documentos/LetterBook/backend/catalogo/src/test/java/com/catalogo/catalogo/controller/AutorControllerTest.java
 /home/jvm/Documentos/LetterBook/backend/catalogo/src/test/java/com/catalogo/catalogo/controller/LivroControllerTest.java
+/home/jvm/Documentos/LetterBook/backend/catalogo/src/test/java/com/catalogo/catalogo/repository/LivroSpecificationsTest.java

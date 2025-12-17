@@ -3,12 +3,15 @@ com/letterbook/community/api/dto/ComunidadeRequest.class
 com/letterbook/community/domain/model/MembroComunidadeEntity.class
 com/letterbook/community/domain/repository/MembroComunidadeRepository.class
 com/letterbook/community/domain/model/RankingEntity.class
+com/letterbook/community/config/SecurityConfig.class
 com/letterbook/community/api/dto/MembroComunidadeResponse.class
 com/letterbook/community/api/dto/RankingResponse.class
+com/letterbook/community/config/TokenService.class
 com/letterbook/community/CommunityApplication.class
 com/letterbook/community/application/service/ComunidadeService.class
 com/letterbook/community/domain/repository/ComunidadeRepository.class
 com/letterbook/community/api/dto/ComunidadeResponse.class
+com/letterbook/community/config/SecurityFilter.class
 com/letterbook/community/domain/model/RankingEntity$TipoRanking.class
 com/letterbook/community/domain/repository/RankingRepository.class
 com/letterbook/community/domain/model/ComunidadeEntity.class

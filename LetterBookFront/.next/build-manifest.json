@@ -1,14 +1,53 @@
 {
   "pages": {
-    "/_app": []
+    "/_app": [
+      "static/chunks/e7eb2_next_dist_compiled_next-devtools_index_767d85b6.js",
+      "static/chunks/e7eb2_next_dist_compiled_d2e7cc16._.js",
+      "static/chunks/e7eb2_next_dist_shared_lib_120cdfc6._.js",
+      "static/chunks/e7eb2_next_dist_client_bfe5ccdc._.js",
+      "static/chunks/e7eb2_next_dist_64cc4c0f._.js",
+      "static/chunks/e7eb2_next_app_36565160.js",
+      "static/chunks/[next]_entry_page-loader_ts_1c3531ba._.js",
+      "static/chunks/e7eb2_react-dom_0ae86633._.js",
+      "static/chunks/e7eb2_a349951e._.js",
+      "static/chunks/[root-of-the-server]__65187d6e._.js",
+      "static/chunks/Documentos_LetterBook_LetterBookFront_pages__app_2da965e7._.js",
+      "static/chunks/turbopack-Documentos_LetterBook_LetterBookFront_pages__app_cf465a2f._.js"
+    ],
+    "/_error": [
+      "static/chunks/e7eb2_next_dist_compiled_next-devtools_index_767d85b6.js",
+      "static/chunks/e7eb2_next_dist_compiled_d2e7cc16._.js",
+      "static/chunks/e7eb2_next_dist_shared_lib_bf1bd33f._.js",
+      "static/chunks/e7eb2_next_dist_client_bfe5ccdc._.js",
+      "static/chunks/e7eb2_next_dist_745b5bbe._.js",
+      "static/chunks/e7eb2_next_error_12047e25.js",
+      "static/chunks/[next]_entry_page-loader_ts_cced0010._.js",
+      "static/chunks/e7eb2_react-dom_0ae86633._.js",
+      "static/chunks/e7eb2_a349951e._.js",
+      "static/chunks/[root-of-the-server]__e7b55a99._.js",
+      "static/chunks/Documentos_LetterBook_LetterBookFront_pages__error_2da965e7._.js",
+      "static/chunks/turbopack-Documentos_LetterBook_LetterBookFront_pages__error_63a61134._.js"
+    ]
   },
   "devFiles": [],
   "ampDevFiles": [],
-  "polyfillFiles": [],
+  "polyfillFiles": [
+    "static/chunks/e7eb2_next_dist_build_polyfills_polyfill-nomodule.js"
+  ],
   "lowPriorityFiles": [
     "static/development/_ssgManifest.js",
     "static/development/_buildManifest.js"
   ],
-  "rootMainFiles": [],
+  "rootMainFiles": [
+    "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_a0797008._.js",
+    "static/chunks/e7eb2_next_dist_compiled_react-dom_ae3611c5._.js",
+    "static/chunks/e7eb2_next_dist_compiled_next-devtools_index_e66f21b0.js",
+    "static/chunks/e7eb2_next_dist_compiled_51966917._.js",
+    "static/chunks/e7eb2_next_dist_client_394c7c43._.js",
+    "static/chunks/e7eb2_next_dist_df67b892._.js",
+    "static/chunks/e7eb2_@swc_helpers_cjs_1427f3b9._.js",
+    "static/chunks/Documentos_LetterBook_LetterBookFront_a0ff3932._.js",
+    "static/chunks/turbopack-Documentos_LetterBook_LetterBookFront_91378a05._.js"
+  ],
   "ampFirstPages": []
 }

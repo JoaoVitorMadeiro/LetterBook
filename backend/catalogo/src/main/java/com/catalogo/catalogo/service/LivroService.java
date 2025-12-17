@@ -73,8 +73,8 @@ public class LivroService {
     }
 
     @Transactional(readOnly = true)
-    public Page<LivroResponse> listar(Pageable pageable, String titulo, UUID autorId, UUID generoId) {
-        Specification<LivroEntity> spec = withFilters(titulo, autorId, generoId);
+    public Page<LivroResponse> listar(Pageable pageable, String search, String titulo, UUID autorId, UUID generoId) {
+        Specification<LivroEntity> spec = withFilters(search, titulo, autorId, generoId);
         return livroRepository.findAll(spec, pageable).map(this::toResponse);
     }
 

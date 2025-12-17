@@ -1,3 +1,4 @@
-com/letterbook/user/api/controller/UserControllerTest$1.class
 com/letterbook/user/api/controller/UserControllerTest.class
+com/letterbook/user/infra/security/JwtTokenServiceTest.class
+com/letterbook/user/api/controller/AuthControllerTest.class
 com/letterbook/user/UserApplicationTests.class

@@ -1,8 +1,12 @@
+'use client';
+
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card } from '@/components/ui/card';
 import { Heart, MessageCircle } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { api } from '@/services/api';
 
 interface BookStackProps {
   title: string;
@@ -31,9 +35,14 @@ function BookStack({ title, bookCount, likes, comments, imageUrls }: BookStackPr
               zIndex: 3 - index,
             }}
           >
-            <Image src={url} alt={`Book cover ${index + 1}`} layout="fill" objectFit="cover" />
+            <Image src={url} alt={`Book cover ${index + 1}`} fill style={{ objectFit: "cover" }} />
           </Card>
         ))}
+         {imageUrls.length === 0 && (
+             <Card className="absolute w-full h-full border-2 border-[#2a2a2a] overflow-hidden bg-gray-800 flex items-center justify-center">
+                 <span className="text-gray-500">No books</span>
+             </Card>
+         )}
       </div>
       <div className="pt-8">
         <h3 className="font-bold text-white truncate">{title}</h3>
@@ -53,12 +62,43 @@ function BookStack({ title, bookCount, likes, comments, imageUrls }: BookStackPr
   );
 }
 
+interface ListaResponse {
+    id: string;
+    nome: string;
+    livrosIds: string[];
+    tipo: string;
+}
 
 export default function ListsPage() {
-    const myLists = [
-        { title: "Essential Sci-Fi", bookCount: 12, likes: 128, comments: 15, imageUrls: ["https://picsum.photos/seed/1/400/600", "https://picsum.photos/seed/2/400/600", "https://picsum.photos/seed/3/400/600"] },
-        { title: "Mind-Bending Reads", bookCount: 8, likes: 72, comments: 9, imageUrls: ["https://picsum.photos/seed/4/400/600", "https://picsum.photos/seed/5/400/600", "https://picsum.photos/seed/6/400/600"] },
-    ];
+    const [myLists, setMyLists] = useState<BookStackProps[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchLists = async () => {
+            try {
+                const response = await api.get('/listas');
+                const data: ListaResponse[] = response.data;
+                
+                const formattedLists: BookStackProps[] = data.map(list => ({
+                    title: list.nome,
+                    bookCount: list.livrosIds.length,
+                    likes: 0, // Placeholder
+                    comments: 0, // Placeholder
+                    // We don't have book covers yet, so we use placeholders or empty array
+                    // In a real app, we would fetch book details or store coverUrls in the list
+                    imageUrls: list.livrosIds.map((_, i) => `https://placehold.co/400x600?text=Book+${i+1}`)
+                }));
+                setMyLists(formattedLists);
+            } catch (error) {
+                console.error("Failed to fetch lists:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchLists();
+    }, []);
+
     const featuredLists = [
         { title: "21st Century Classics", bookCount: 50, likes: 1200, comments: 88, imageUrls: ["https://picsum.photos/seed/7/400/600", "https://picsum.photos/seed/8/400/600", "https://picsum.photos/seed/9/400/600"] },
         { title: "Philosophy 101", bookCount: 25, likes: 850, comments: 42, imageUrls: ["https://picsum.photos/seed/10/400/600", "https://picsum.photos/seed/11/400/600", "https://picsum.photos/seed/12/400/600"] },
@@ -75,9 +115,19 @@ export default function ListsPage() {
       </div>
 
       <section className="mb-12">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-12">
-          {myLists.map(list => <BookStack key={list.title} {...list} />)}
-        </div>
+        {loading ? (
+             <div className="text-white">Loading...</div>
+        ) : (
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-12">
+            {myLists.length > 0 ? (
+                myLists.map(list => <BookStack key={list.title} {...list} />)
+            ) : (
+                <div className="col-span-full text-center text-gray-500 py-8">
+                    You haven't created any lists yet.
+                </div>
+            )}
+            </div>
+        )}
       </section>
 
       <section>

@@ -1,0 +1,29 @@
+.view {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 48px;
+  justify-content: center;
+  padding: 10px;
+  position: relative;
+  top: 266px;
+  width: 48px;
+}
+
+.view .exclude {
+  aspect-ratio: 1.74;
+  height: 23.27px;
+  margin-left: -6.23px;
+  margin-right: -6.23px;
+  position: relative;
+  width: 40.45px;
+}
+
+.view.theme-hover {
+  left: 174px;
+}
+
+.view.theme-active {
+  left: 276px;
+}

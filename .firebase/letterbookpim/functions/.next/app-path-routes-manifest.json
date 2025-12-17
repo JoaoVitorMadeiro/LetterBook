@@ -1,0 +1,19 @@
+{
+  "/favicon.ico/route": "/favicon.ico",
+  "/_not-found/page": "/_not-found",
+  "/login/page": "/login",
+  "/forgot-password/page": "/forgot-password",
+  "/register/page": "/register",
+  "/page": "/",
+  "/reset-password/page": "/reset-password",
+  "/(main)/book/[id]/page": "/book/[id]",
+  "/(main)/books/page": "/books",
+  "/(main)/create-list/page": "/create-list",
+  "/(main)/communities/page": "/communities",
+  "/(main)/community/[id]/page": "/community/[id]",
+  "/(main)/lists/page": "/lists",
+  "/(main)/page": "/",
+  "/(main)/feed/page": "/feed",
+  "/(main)/profile/page": "/profile",
+  "/(main)/rankings/page": "/rankings"
+}

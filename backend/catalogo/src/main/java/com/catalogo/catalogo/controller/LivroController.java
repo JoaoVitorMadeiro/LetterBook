@@ -36,11 +36,12 @@ public class LivroController {
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size,
             @RequestParam(defaultValue = "titulo") String sortBy,
+            @RequestParam(required = false) String search,
             @RequestParam(required = false) String titulo,
             @RequestParam(required = false) UUID autorId,
             @RequestParam(required = false) UUID generoId) {
         Pageable pageable = PageRequest.of(page, size, Sort.by(sortBy));
-        Page<LivroResponse> response = livroService.listar(pageable, titulo, autorId, generoId);
+        Page<LivroResponse> response = livroService.listar(pageable, search, titulo, autorId, generoId);
         return ResponseEntity.ok(response);
     }
 

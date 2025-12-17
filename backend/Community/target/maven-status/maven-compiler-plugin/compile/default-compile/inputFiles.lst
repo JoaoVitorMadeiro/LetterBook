@@ -5,6 +5,9 @@
 /home/jvm/Documentos/LetterBook/backend/Community/src/main/java/com/letterbook/community/api/dto/MembroComunidadeResponse.java
 /home/jvm/Documentos/LetterBook/backend/Community/src/main/java/com/letterbook/community/api/dto/RankingResponse.java
 /home/jvm/Documentos/LetterBook/backend/Community/src/main/java/com/letterbook/community/application/service/ComunidadeService.java
+/home/jvm/Documentos/LetterBook/backend/Community/src/main/java/com/letterbook/community/config/SecurityConfig.java
+/home/jvm/Documentos/LetterBook/backend/Community/src/main/java/com/letterbook/community/config/SecurityFilter.java
+/home/jvm/Documentos/LetterBook/backend/Community/src/main/java/com/letterbook/community/config/TokenService.java
 /home/jvm/Documentos/LetterBook/backend/Community/src/main/java/com/letterbook/community/domain/model/ComunidadeEntity.java
 /home/jvm/Documentos/LetterBook/backend/Community/src/main/java/com/letterbook/community/domain/model/MembroComunidadeEntity.java
 /home/jvm/Documentos/LetterBook/backend/Community/src/main/java/com/letterbook/community/domain/model/RankingEntity.java

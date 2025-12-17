@@ -1,4 +1,9 @@
 #!/bin/bash
+export JWT_SECRET="MySuperSecretKeyForLetterBookAppThatMustBeVeryLongAndSecure1234567890!"
+export USER_SERVICE_URL="http://127.0.0.1:8085"
+export CATALOGO_SERVICE_URL="http://127.0.0.1:8081"
+export INTERACTION_SERVICE_URL="http://127.0.0.1:8082"
+export COMMUNITY_SERVICE_URL="http://127.0.0.1:8084"
 mkdir -p logs
 
 echo "Iniciando serviços de backend..."

@@ -1,2 +1,4 @@
 /home/jvm/Documentos/LetterBook/backend/User/src/test/java/com/letterbook/user/UserApplicationTests.java
+/home/jvm/Documentos/LetterBook/backend/User/src/test/java/com/letterbook/user/api/controller/AuthControllerTest.java
 /home/jvm/Documentos/LetterBook/backend/User/src/test/java/com/letterbook/user/api/controller/UserControllerTest.java
+/home/jvm/Documentos/LetterBook/backend/User/src/test/java/com/letterbook/user/infra/security/JwtTokenServiceTest.java

@@ -64,7 +64,7 @@ public class LivroControllerTest {
         livro.setTitulo("Livro 1");
         Page<LivroResponse> page = new PageImpl<>(List.of(livro));
 
-        when(livroService.listar(any(Pageable.class), any(), any(), any())).thenReturn(page);
+        when(livroService.listar(any(Pageable.class), any(), any(), any(), any())).thenReturn(page);
 
         mockMvc.perform(get("/api/v1/livros"))
                 .andExpect(status().isOk())

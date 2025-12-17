@@ -6,6 +6,7 @@ import { Separator } from '@/components/ui/separator';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Book, Bookmark, MessageSquare, Star } from 'lucide-react';
 import Image from 'next/image';
+import { ReviewList } from '@/components/review-list';
 
 async function getBook(id: string) {
   try {
@@ -126,32 +127,8 @@ export default async function BookDetailsPage({ params }: { params: Promise<{ id
             <CardHeader>
               <CardTitle>Avaliações de Usuários</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-6">
-              {[1, 2, 3].map(i => (
-                <div key={i} className="flex gap-4">
-                  <Avatar>
-                    <AvatarImage src={`https://picsum.photos/seed/user${i}/40/40`} />
-                    <AvatarFallback>U{i}</AvatarFallback>
-                  </Avatar>
-                  <div className="flex-1">
-                    <div className="flex justify-between items-center">
-                      <p className="font-semibold">User {i}</p>
-                      <div className="flex items-center text-yellow-400">
-                        {[...Array(5)].map((_, j) => (
-                           <Star key={j} className={`w-4 h-4 ${j < 4 ? 'fill-current' : 'fill-muted stroke-muted-foreground'}`} />
-                        ))}
-                      </div>
-                    </div>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      This is a fantastic book! A must-read for any fan of the genre. The world-building is incredible.
-                    </p>
-                  </div>
-                </div>
-              ))}
-              <Button variant="outline" className="w-full mt-4">
-                 <MessageSquare className="mr-2 h-4 w-4" />
-                 Escrever uma avaliação
-              </Button>
+            <CardContent>
+              <ReviewList bookId={book.id} />
             </CardContent>
           </Card>
         </main>

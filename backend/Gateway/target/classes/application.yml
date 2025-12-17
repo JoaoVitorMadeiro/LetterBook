@@ -54,7 +54,19 @@ spring:
           uri: ${INTERACTION_SERVICE_URL:http://localhost:8082}
           predicates:
             - Path=/api/v1/avaliacoes/**
+        - id: interaction-service-listas
+          uri: ${INTERACTION_SERVICE_URL:http://localhost:8082}
+          predicates:
+            - Path=/api/v1/listas/**
+        - id: interaction-service-feed
+          uri: ${INTERACTION_SERVICE_URL:http://localhost:8082}
+          predicates:
+            - Path=/api/v1/feed/**
         - id: community-service
           uri: ${COMMUNITY_SERVICE_URL:http://localhost:8084}
           predicates:
             - Path=/api/v1/comunidades/**
+        - id: user-service-rankings
+          uri: ${USER_SERVICE_URL:http://localhost:8085}
+          predicates:
+            - Path=/api/v1/rankings/**

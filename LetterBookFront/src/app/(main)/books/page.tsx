@@ -8,9 +8,12 @@ import { api } from '@/services/api';
 import { useEffect, useState } from 'react';
 import withAuth from '@/components/withAuth'; // Assuming you have a withAuth HOC or similar
 
-async function getBooksFromBackend(): Promise<Book[]> {
+async function getBooksFromBackend(search?: string): Promise<Book[]> {
   try {
-    const response = await api.get('/livros');
+    const params = new URLSearchParams();
+    if (search) params.append('search', search);
+
+    const response = await api.get(`/livros?${params.toString()}`);
     // Backend returns Page<LivroResponse>, so we access .content
     const content = response.data.content || [];
     
@@ -33,12 +36,25 @@ function BooksPageContent() {
   const [books, setBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
+
+  // Debounce logic
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearchTerm(searchTerm);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [searchTerm]);
 
   useEffect(() => {
     async function loadBooks() {
+      setLoading(true);
       try {
-        const fetchedBooks = await getBooksFromBackend();
+        const fetchedBooks = await getBooksFromBackend(debouncedSearchTerm);
         setBooks(fetchedBooks);
+        setError(null);
       } catch (err) {
         setError("Failed to load books. Please try again later.");
         console.error("Error fetching books:", err);
@@ -47,23 +63,7 @@ function BooksPageContent() {
       }
     }
     loadBooks();
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="container mx-auto px-4 py-8 text-center">
-        Loading books...
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="container mx-auto px-4 py-8 text-center text-red-500">
-        {error}
-      </div>
-    );
-  }
+  }, [debouncedSearchTerm]);
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -74,10 +74,20 @@ function BooksPageContent() {
             type="search"
             placeholder="Search for a book..."
             className="w-full pl-10"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
       </div>
-      {books.length > 0 ? (
+      {loading ? (
+          <div className="container mx-auto px-4 py-8 text-center">
+            Loading books...
+          </div>
+      ) : error ? (
+          <div className="container mx-auto px-4 py-8 text-center text-red-500">
+            {error}
+          </div>
+      ) : books.length > 0 ? (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
           {books.map(book => (
             <BookCard key={book.id} book={book} />
@@ -87,7 +97,7 @@ function BooksPageContent() {
         <div className="text-center py-20">
           <h2 className="text-2xl font-semibold">No Books Found</h2>
           <p className="text-muted-foreground">
-            There are no books in the catalog yet.
+            There are no books in the catalog matching your search.
           </p>
         </div>
       )}

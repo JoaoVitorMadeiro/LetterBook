@@ -1,5 +1,6 @@
 com/catalogo/catalogo/controller/EditoraController.class
 com/catalogo/catalogo/dto/AutorRequest.class
+com/catalogo/catalogo/repository/LivroSpecifications.class
 com/catalogo/catalogo/model/LivroEntity.class
 com/catalogo/catalogo/controller/AutorController.class
 com/catalogo/catalogo/service/EditoraService.class

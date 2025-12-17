@@ -1,0 +1,18 @@
+.divider {
+  align-items: flex-start;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+  left: 871px;
+  position: relative;
+  top: -291px;
+}
+
+.divider .vector {
+  align-self: stretch;
+  height: 1px;
+  margin-top: -0.50px;
+  object-fit: cover;
+  position: relative;
+  width: 100%;
+}

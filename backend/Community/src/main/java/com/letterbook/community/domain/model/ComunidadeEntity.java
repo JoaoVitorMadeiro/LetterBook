@@ -2,6 +2,7 @@ package com.letterbook.community.domain.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -34,7 +35,7 @@ public class ComunidadeEntity {
     @Column(name = "imagem_url")
     private String imagemUrl;
 
-    @NotBlank
+    @NotNull
     @Column(name = "criador_id", nullable = false)
     private UUID criadorId;
 

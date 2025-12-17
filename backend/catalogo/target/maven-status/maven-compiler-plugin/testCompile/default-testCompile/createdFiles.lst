@@ -1,2 +1,4 @@
+com/catalogo/catalogo/repository/LivroSpecificationsTest.class
+com/catalogo/catalogo/controller/AutorControllerTest.class
 com/catalogo/catalogo/controller/LivroControllerTest.class
 com/catalogo/catalogo/CatalogoApplicationTests.class

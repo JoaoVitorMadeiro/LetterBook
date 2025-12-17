@@ -25,6 +25,7 @@ public class JwtTokenService implements TokenService {
 
     @Override
     public String gerarToken(UserEntity user) {
+        System.out.println("User Service Secret starts with: " + (secret != null && secret.length() > 5 ? secret.substring(0, 5) : "null/short"));
         Date agora = new Date();
         Date expiraEm = new Date(agora.getTime() + expirationMillis);
 

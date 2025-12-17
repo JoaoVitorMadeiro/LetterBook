@@ -1,0 +1,33 @@
+.link-navigation {
+  align-items: center;
+  display: inline-flex;
+  gap: 10px;
+  left: 20px;
+  padding: 0px 2px;
+  position: relative;
+  top: 20px;
+}
+
+.link-navigation .text-wrapper {
+  color: var(--tokens-color-text-primary);
+  font-family: var(--link-navigation-font-family);
+  font-size: var(--link-navigation-font-size);
+  font-style: var(--link-navigation-font-style);
+  font-weight: var(--link-navigation-font-weight);
+  letter-spacing: var(--link-navigation-letter-spacing);
+  line-height: var(--link-navigation-line-height);
+  margin-top: -1.00px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.link-navigation .text-wrapper:hover {
+  color: var(--tokens-color-brand-blue);
+  text-align: center;
+}
+
+.link-navigation:hover {
+  justify-content: center;
+  top: 58px;
+}
