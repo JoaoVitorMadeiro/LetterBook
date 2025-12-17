@@ -63,7 +63,8 @@ export const fetchCurrentUser = async (): Promise<User> => {
 
 export const registerUser = async (name: string, username: string, email: string, password: string): Promise<User> => {
     try {
-        const response = await api.post('/auth/register', { name, username, email, password });
+        // Backend expects 'nome' and 'senha'
+        const response = await api.post('/auth/register', { nome: name, email, senha: password });
         return response.data;
     } catch (error: any) {
         throw new Error(error.response?.data?.message || 'Registration failed');

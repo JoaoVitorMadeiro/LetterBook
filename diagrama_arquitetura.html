@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LetterBook Architecture Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+    </script>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f0f0; }
+        .container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h2 { text-align: center; color: #333; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Arquitetura LetterBook</h2>
+        <div class="mermaid">
+            %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#00E054', 'edgeLabelBackground':'#ffffff', 'tertiaryColor': '#fff'}}}%%
+            graph TD
+                subgraph Frontend
+                    Client[📱 Web Client<br/>Next.js 15 / React]
+                end
+
+                subgraph Infrastructure [Docker Container Network]
+                    Gateway[🛡️ API Gateway<br/>Spring Cloud<br/>Port: 8080]
+                    
+                    subgraph Microservices [Backend Services]
+                        User[👤 User Service<br/>Port: 8085]
+                        Catalog[Hz Catalog Service<br/>Port: 8081]
+                        Interaction[💬 Interaction Service<br/>Port: 8082]
+                        Community[👥 Community Service<br/>Port: 8084]
+                    end
+                    
+                    DB[(🗄️ PostgreSQL<br/>Port: 5432)]
+                end
+
+                %% Flow Connections
+                Client -->|HTTP / REST| Gateway
+                
+                Gateway -->|/api/v1/auth| User
+                Gateway -->|/api/v1/livros| Catalog
+                Gateway -->|/api/v1/avaliacoes| Interaction
+                Gateway -->|/api/v1/comunidades| Community
+
+                User -->|JPA| DB
+                Catalog -->|JPA| DB
+                Interaction -->|JPA| DB
+                Community -->|JPA| DB
+
+                %% Styling
+                classDef client fill:#333,stroke:#333,stroke-width:2px,color:#fff;
+                classDef gateway fill:#ff9900,stroke:#d68100,stroke-width:2px,color:#fff;
+                classDef service fill:#00E054,stroke:#00b041,stroke-width:2px,color:#fff;
+                classDef db fill:#336791,stroke:#285171,stroke-width:2px,color:#fff;
+
+                class Client client;
+                class Gateway gateway;
+                class User,Catalog,Interaction,Community service;
+                class DB db;
+        </div>
+    </div>
+</body>
+</html>

@@ -1,1 +1,15 @@
-{}
+{
+  "/(main)/book/[id]/page": "app/(main)/book/[id]/page.js",
+  "/(main)/books/page": "app/(main)/books/page.js",
+  "/(main)/communities/page": "app/(main)/communities/page.js",
+  "/(main)/community/[id]/page": "app/(main)/community/[id]/page.js",
+  "/(main)/create-list/page": "app/(main)/create-list/page.js",
+  "/(main)/feed/page": "app/(main)/feed/page.js",
+  "/(main)/lists/page": "app/(main)/lists/page.js",
+  "/(main)/profile/page": "app/(main)/profile/page.js",
+  "/(main)/rankings/page": "app/(main)/rankings/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/login/page": "app/login/page.js",
+  "/page": "app/page.js",
+  "/register/page": "app/register/page.js"
+}
