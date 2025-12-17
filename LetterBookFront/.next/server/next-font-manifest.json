@@ -1,55 +1,6 @@
 {
-  "app": {
-    "[project]/Documentos/LetterBook/LetterBookFront/src/app/(main)/book/[id]/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/c9e42e3eae6237c2-s.p.24d96596.woff2"
-    ],
-    "[project]/Documentos/LetterBook/LetterBookFront/src/app/(main)/books/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/c9e42e3eae6237c2-s.p.24d96596.woff2"
-    ],
-    "[project]/Documentos/LetterBook/LetterBookFront/src/app/(main)/communities/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/c9e42e3eae6237c2-s.p.24d96596.woff2"
-    ],
-    "[project]/Documentos/LetterBook/LetterBookFront/src/app/(main)/community/[id]/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/c9e42e3eae6237c2-s.p.24d96596.woff2"
-    ],
-    "[project]/Documentos/LetterBook/LetterBookFront/src/app/(main)/create-list/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/c9e42e3eae6237c2-s.p.24d96596.woff2"
-    ],
-    "[project]/Documentos/LetterBook/LetterBookFront/src/app/(main)/feed/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/c9e42e3eae6237c2-s.p.24d96596.woff2"
-    ],
-    "[project]/Documentos/LetterBook/LetterBookFront/src/app/(main)/lists/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/c9e42e3eae6237c2-s.p.24d96596.woff2"
-    ],
-    "[project]/Documentos/LetterBook/LetterBookFront/src/app/(main)/profile/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/c9e42e3eae6237c2-s.p.24d96596.woff2"
-    ],
-    "[project]/Documentos/LetterBook/LetterBookFront/src/app/(main)/rankings/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/c9e42e3eae6237c2-s.p.24d96596.woff2"
-    ],
-    "[project]/Documentos/LetterBook/LetterBookFront/src/app/login/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/c9e42e3eae6237c2-s.p.24d96596.woff2"
-    ],
-    "[project]/Documentos/LetterBook/LetterBookFront/src/app/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/c9e42e3eae6237c2-s.p.24d96596.woff2"
-    ],
-    "[project]/Documentos/LetterBook/LetterBookFront/src/app/register/page": [
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/c9e42e3eae6237c2-s.p.24d96596.woff2"
-    ]
-  },
-  "appUsingSizeAdjust": true,
+  "app": {},
+  "appUsingSizeAdjust": false,
   "pages": {},
   "pagesUsingSizeAdjust": false
 }
